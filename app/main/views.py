@@ -19,8 +19,9 @@ def article(id):
     '''
     View article page function that returns the various article details page and its data
     '''
-    # title= 'Articles'
-    articles = article_source(id)
+    
+    articles= article_source(id)
+    print(articles)
     return render_template('article.html',articles= articles,id=id )
 
 @main.route('/categories/<cat_name>')
@@ -32,4 +33,4 @@ def category(cat_name):
     title = f'{cat_name}'
     cat = cat_name
 
-    return render_template('categories.html',title = title,category = category, cat= cat_name)
+    return render_template('category.html',title = "Category",category = category, cat= cat_name)

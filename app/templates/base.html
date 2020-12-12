@@ -1,5 +1,26 @@
-{% extends 'bootstrap/base.html'%}
-
+{%extends 'bootstrap/base.html'%}
+<html>
+<head>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-144351462-1');
+    </script>
+    <title>Welcome to News_Bulletins</title>
+    {% block styles %}
+        
+        <link href="https://fonts.googleapis.com/css?family=ABeeZee|Chilanka|Handlee|Livvic|Source+Code+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% endblock %}
+</head>
 {% block navbar %}
-    {% include 'navbar.html' %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}"> 
+{% include 'navbar.html' %}
 {% endblock %}

@@ -1,3 +1,5 @@
+
+
 import urllib.request,json
 from .models import Article, Category, Source , Headlines
 
@@ -14,6 +16,7 @@ def configure_request(app):
     source_url= app.config['NEWS_API_SOURCE_URL']
     cat_url=app.config['CAT_API_URL']
 
+
 def get_source():
     '''
     Function that gets the json response to url request
@@ -29,6 +32,8 @@ def get_source():
         if get_sources_response['sources']:
             source_results_list = get_sources_response['sources']
             source_results = process_results(source_results_list)
+
+    return source_results
 
 def process_results(source_list):
     '''
@@ -51,7 +56,7 @@ def process_results(source_list):
     return source_results
 
 def article_source(id):
-    article_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+    article_source_url = 'https://newsapi.org/v2/sources?apiKey=00ef677f65e0431599c6a04edc5ba054'.format(id,api_key)
     print(article_source_url)
     with urllib.request.urlopen(article_source_url) as url:
         article_source_data = url.read()
@@ -107,7 +112,7 @@ def get_headlines():
     '''
     function that gets the response to the category json
     '''
-    get_headlines_url = 'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=00ef677f65e0431599c6a04edc5ba054'.format(api_key)
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=00ef677f65e0431599c6a04edc5ba054'.format(api_key)
     print(get_headlines_url)
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
@@ -120,5 +125,3 @@ def get_headlines():
             get_headlines_results = process_articles_results(get_headlines_list)
 
     return get_headlines_results
-
-    return source_results
